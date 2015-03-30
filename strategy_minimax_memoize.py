@@ -56,7 +56,8 @@ class StrategyMinimaxMemoize(Strategy):
             # if game is known, return value from dictionary
             return StrategyMinimaxMemoize.states_data[repr(state)]            
         elif state.over:
-            # if game is over, return outcome
+            # if game is over, return outcome, assign value to dictionary
+            StrategyMinimaxMemoize.states_data[repr(state)] = state.outcome()
             return state.outcome()
         else:
             # if game is not over, run through all possible_next_moves
