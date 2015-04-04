@@ -62,13 +62,14 @@ if __name__ == '__main__':
     from strategy_random import StrategyRandom
     from strategy_minimax import StrategyMinimax
     from strategy_minimax_memoize import StrategyMinimaxMemoize
+    from strategy_minimax_prune import StrategyMinimaxPrune
     strategy = {'r': StrategyRandom, 'm': StrategyMinimax, 
-                'n': StrategyMinimaxMemoize}
+                'n': StrategyMinimaxMemoize, 'p': StrategyMinimaxPrune}
     g = ''
     while not g in game_state.keys():
         g = input('Enter s to play Subtract Square, t to play Tippy: ')
     s = ''
     while not s in strategy.keys():
         s = input('Enter r for random strategy for computer, m for minimax, '
-                  + 'n for minimax memoize: ')
+                  + 'n for minimax memoize, p for minimax prune: ')
     GameView(game_state[g], strategy[s]).play()
